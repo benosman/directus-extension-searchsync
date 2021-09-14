@@ -89,6 +89,7 @@ module.exports = function registerHook({ services, env, database, getSchema }) {
 		const items = await query.readByQuery({
 			fields: [pk],
 			filter: extensionConfig.collections[collection].filter || [],
+			limit: 1000,
 		});
 		for (const item of items) {
 			await updateItemIndex(collection, item[pk], schema);
