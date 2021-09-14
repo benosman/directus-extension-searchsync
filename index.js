@@ -1,7 +1,7 @@
 const { join, dirname } = require('path');
 const { existsSync } = require('fs');
 const striptags = require('striptags');
-const { flattenObject, objectMap } = require('./utils');
+const { flattenObject, flattenRelational, flattenHierarchical, objectMap } = require('./utils');
 const availableIndexers = require('./indexers');
 
 module.exports = function registerHook({ services, env, database, getSchema }) {
@@ -142,6 +142,8 @@ module.exports = function registerHook({ services, env, database, getSchema }) {
 				{
 					striptags,
 					flattenObject,
+					flattenRelational,
+					flattenHierarchical,
 					objectMap,
 				},
 				collection
